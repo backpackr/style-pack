@@ -1,4 +1,4 @@
-<img src="./static/backpackr.png" width="200" height="auto" />
+![logo](https://image.idus.com/static/backpackr.png)
 
 ![license](https://img.shields.io/github/license/backpackr/style-pack)
 
@@ -13,7 +13,7 @@
 1. Install style-pack module with `npm`
 
 ```
-npm install --save style-pack
+npm install --save @backpackr/style-pack
 ```
 
 2. Import at your project root JS file
