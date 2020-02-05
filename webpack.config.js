@@ -5,26 +5,18 @@ module.exports = {
 	entry: ['./src/index.js'],
 	output: {
 		path: path.resolve(__dirname, './'),
-		filename: 'styles.js',
+		filename: 'app.js',
 	},
 	module: {
 		rules: [
-			{
-				test: /\.scss$/,
-				use: [
+            {
+                test: /\.scss$/,
+                use: [
                     'style-loader',
-					{
-						loader: 'file-loader',
-						options: {
-							name: 'styles.module.css',
-						}
-                    },
-					'extract-loader',
-					'css-loader',
-					'postcss-loader',
-					'sass-loader'
-				]
+                    'css-loader',
+                    'sass-loader'
+                ]
             }
 		]
-	}
+    }
 };

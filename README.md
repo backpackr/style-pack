@@ -7,11 +7,11 @@
 
 🐺Basic CSS library pack
 
-## Import
+## 💾 Install
 
 ### NPM
 
-1. Install style-pack module with `npm`
+1. Install `style-pack` with `npm`
 
 ```
 npm install --save @backpackr/style-pack
@@ -31,12 +31,52 @@ require("@backpackr/style-pack");
 Using [jsDelivr](https://www.jsdelivr.com/) for CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/backpackr/style-pack/style.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/backpackr/style-pack/app.js"></script>
 ```
 
 If you want specific version, choose one in [here](https://github.com/backpackr/style-pack/releases)
 
-## Local environment
+## 🧰 Usage
+
+In this part, i will use `React.js` for example.
+
+### By class selector
+
+You can use `class selector` to set styles like this.
+
+```javascript
+import "@backpackr/style-pack";
+
+export const Button = () => {
+    return <button className="button__red">This is red button!</button>;
+};
+```
+
+This must be just simplest way to use it.
+
+### By CSS module
+
+You can use `css module` to set styles like this.
+
+```javascript
+import styles from "@backpackr/style-pack/modules/styles.module.css";
+
+export const Button = () => {
+    return <button className={styles.button__red}>This is red button!</button>;
+};
+```
+
+If you use `css module`, it will be easy to see what kind of styles you can use. Just `console.log()` it.
+
+```javascript
+import styles from "@backpackr/style-pack/modules/styles.module.css";
+
+console.log(styles);
+```
+
+## 🌏 Local environment
+
+You can set and test this library in the local environment
 
 1. Clone `style-pack`
 
@@ -51,7 +91,7 @@ cd style-pack
 npm run build
 ```
 
-3. Move to your project and install it by path
+3. Move it to your project and `npm` install by path
 
 ```
 cd your/project
@@ -67,15 +107,24 @@ import "@backpackr/style-pack";
 require("@backpackr/style-pack");
 ```
 
-5. If your project has `hot-reloading`, let `style-pack` build whenever you edit something
+5. If your project has `hot-reloading`, there're two choice by usage.
+
+> Class selector
 
 ```
 cd style-pack
-npm run webpack
+npm run webpack:class
+```
+
+> CSS module
+
+```
+cd style-pack
+npm run webpack:module
 ```
 
 It will make your project to show you changes immediately
 
-## License
+## 📜 License
 
 [MIT](https://github.com/backpackr/style-pack/blob/master/LICENSE)
