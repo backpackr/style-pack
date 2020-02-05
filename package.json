@@ -1,6 +1,6 @@
 {
     "name": "@backpackr/style-pack",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Basic CSS library",
     "main": "app.js",
     "scripts": {

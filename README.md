@@ -3,6 +3,10 @@
 ![npm](https://img.shields.io/npm/v/@backpackr/style-pack?color=%23e6524b)
 ![license](https://img.shields.io/github/license/backpackr/style-pack)
 
+# !NOTICE!
+
+This project is still not done yet! We will make this library by half of this year and release v1.0.0 soon. Please wait until that time!
+
 # style-pack
 
 🐺Basic CSS library pack
