@@ -1,5 +1,6 @@
 ![logo](https://image.idus.com/static/backpackr.png)
 
+![npm](https://img.shields.io/npm/v/@backpackr/style-pack?color=%23e6524b)
 ![license](https://img.shields.io/github/license/backpackr/style-pack)
 
 # style-pack
@@ -20,9 +21,9 @@ npm install --save @backpackr/style-pack
 
 ```javascript
 // for ES6
-import "style-pack";
+import "@backpackr/style-pack";
 // for common JS
-require("style-pack");
+require("@backpackr/style-pack");
 ```
 
 ### Script
@@ -61,9 +62,9 @@ npm install ../style-pack
 
 ```javascript
 // for ES6
-import "style-pack";
+import "@backpackr/style-pack";
 // for common JS
-require("style-pack");
+require("@backpackr/style-pack");
 ```
 
 5. If your project has `hot-reloading`, let `style-pack` build whenever you edit something
