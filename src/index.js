@@ -1,2 +1,3 @@
-const button = require('./button.scss');
-const example = require('./example.scss');
+require('./button.scss');
+require('./container.scss');
+require('./grid.scss');

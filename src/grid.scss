@@ -1,0 +1,42 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    @for $col from 1 to 13 {
+        &_col_#{$col} {
+            display: grid;
+            grid-template-columns: repeat(#{$col}, 1fr);
+        }
+    }
+
+    @for $row from 1 to 13 {
+        &_row_#{$row} {
+            display: grid;
+            grid-template-rows: repeat(#{$row}, 1fr);
+        }
+    }
+}
+
+@for $start from 0 to 13 {
+    @for $end from 0 to 13 {
+        .col_#{$start}_#{$end} {
+            grid-column: #{$start + 1} / #{$end + 1};
+        }
+    }
+}
+
+@for $start from 0 to 13 {
+    @for $end from 0 to 13 {
+        .row_#{$start}_#{$end} {
+            grid-row: #{$start + 1} / #{$end + 1};
+        }
+    }
+}
+
+@for $col from 0 to 51 {
+    @for $row from 0 to 51 {
+        .gap_#{$col}_#{$row} {
+            grid-gap: #{$col}px #{$row}px;
+        }
+    }
+}

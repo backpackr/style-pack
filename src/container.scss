@@ -1,0 +1,71 @@
+@mixin full {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin middle {
+    @media (max-width: 990px) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media (max-width: 780px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 580px) {
+        @content;
+    }
+}
+
+%responsive_width {
+    @include full {
+        width: 1200px;
+        background-color: lightcoral;
+    }
+
+    @include large {
+        width: 990px;
+        background-color: green;
+    }
+
+    @include middle {
+        width: 780px;
+        background-color: hotpink;
+    }
+
+    @include small {
+        width: 580px;
+        background-color: indigo;
+    }
+
+    @include mobile {
+        width: 100%;
+        background-color: khaki;
+    }
+}
+
+.container {
+    margin: auto;
+    @extend %responsive_width;
+
+    &_left {
+        float: left;
+        @extend %responsive_width;
+    }
+
+    &_right {
+        float: right;
+        @extend %responsive_width;
+    }
+}
