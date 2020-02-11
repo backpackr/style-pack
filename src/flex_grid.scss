@@ -1,0 +1,89 @@
+@mixin flex_grid($is_12) {
+    @media (max-width: 480px) {
+        $size: 2;
+        & > :nth-child(n) {
+            width: calc(100% / #{$size});
+        }
+
+        @for $col from 1 to 13 {
+            .flex_col_#{$col} {
+                @if $col >= $size {
+                    width: 100%;
+                } @else {
+                    width: calc(100% / #{$size} * #{$col}) !important;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 480px) {
+        $size: 4;
+        & > :nth-child(n) {
+            width: calc(100% / #{$size});
+        }
+
+        @for $col from 1 to 13 {
+            .flex_col_#{$col} {
+                @if $col >= $size {
+                    width: 100%;
+                } @else {
+                    width: calc(100% / #{$size} * #{$col}) !important;
+                }
+            }
+        }
+        @media (min-width: 780px) {
+            $size: 6;
+            & > :nth-child(n) {
+                width: calc(100% / #{$size});
+            }
+
+            @for $col from 1 to 13 {
+                .flex_col_#{$col} {
+                    @if $col >= $size {
+                        width: 100%;
+                    } @else {
+                        width: calc(100% / #{$size} * #{$col}) !important;
+                    }
+                }
+            }
+            @if $is_12 {
+                @media (min-width: 1080px) {
+                    $size: 12;
+                    & > :nth-child(n) {
+                        width: calc(100% / #{$size});
+                    }
+
+                    @for $col from 1 to 13 {
+                        .flex_col_#{$col} {
+                            @if $col >= $size {
+                                width: 100%;
+                            } @else {
+                                width: calc(
+                                    100% / #{$size} * #{$col}
+                                ) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+%flex_grid_default {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    & > :nth-child(n) {
+        box-sizing: border-box;
+    }
+}
+
+.flex_grid {
+    @extend %flex_grid_default;
+    @include flex_grid(true);
+    &_6 {
+        @extend %flex_grid_default;
+        @include flex_grid(false);
+    }
+}
