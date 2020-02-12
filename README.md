@@ -129,6 +129,16 @@ npm run webpack:module
 
 It will make your project to show you changes immediately
 
+## 🔨 Feature
+
+[DEMO page](https://backpackr.github.io/style-pack.html)
+
+-   container
+-   color
+-   align
+-   grid
+-   flex_grid
+
 ## 📜 License
 
 [MIT](https://github.com/backpackr/style-pack/blob/master/LICENSE)

@@ -1,0 +1,11 @@
+$float: left, center, right;
+
+.align {
+    @each $div in $float {
+        @each $text in $float {
+            &_#{$div}_text_#{$text} {
+                text-align: #{$text};
+            }
+        }
+    }
+}

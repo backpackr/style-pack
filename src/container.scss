@@ -12,25 +12,45 @@
 
 %responsive_width {
     @include large {
+        overflow: auto;
         width: 1280px;
     }
 
     @include small {
+        overflow: auto;
         width: 100%;
     }
 }
 
 .container {
     margin: auto;
-    @extend %responsive_width;
+    width: 100%;
+    overflow: auto;
 
     &_left {
         float: left;
-        @extend %responsive_width;
+        width: 100%;
+        overflow: auto;
     }
 
     &_right {
         float: right;
+        width: 100%;
+        overflow: auto;
+    }
+
+    &_layout {
+        margin: auto;
         @extend %responsive_width;
+
+        &_left {
+            float: left;
+            @extend %responsive_width;
+        }
+
+        &_right {
+            float: right;
+            @extend %responsive_width;
+        }
     }
 }
