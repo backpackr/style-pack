@@ -1,11 +1,20 @@
-$float: left, center, right;
+$text_align: left, center, right;
+$flex_align: flex-start, center, flex-end;
 
 .align {
-    @each $div in $float {
-        @each $text in $float {
-            &_#{$div}_text_#{$text} {
-                text-align: #{$text};
+    @each $horizontal_align in $flex_align {
+        @each $vertical_align in $flex_align {
+            &_#{$horizontal_align}_#{$vertical_align} {
+                display: flex;
+                justify-content: #{$horizontal_align};
+                align-content: #{$vertical_align};
             }
+        }
+    }
+
+    @each $float in $text_align {
+        &_text_#{$float} {
+            text-align: #{$float};
         }
     }
 }

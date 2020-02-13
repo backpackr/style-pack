@@ -1,0 +1,16 @@
+$mobile: 480px;
+$small: 780px;
+$medium: 1080px;
+$large: 1280px;
+
+@mixin larger_than($point) {
+    @media (min-width: $point) {
+        @content;
+    }
+}
+
+@mixin smaller_than($point) {
+    @media (max-width: $point) {
+        @content;
+    }
+}

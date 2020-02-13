@@ -1,3 +1,8 @@
 .grid {
     display: grid;
 }
+
+@for $col from 1 to 13 {
+    .col_#{$col} {
+    }
+}

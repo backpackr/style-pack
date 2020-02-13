@@ -1,22 +1,12 @@
-@mixin large {
-    @media (min-width: 1280px) {
-        @content;
-    }
-}
-
-@mixin small {
-    @media (max-width: 1280px) {
-        @content;
-    }
-}
+@use 'utils/media';
 
 %responsive_width {
-    @include large {
+    @include media.larger_than(media.$large) {
         overflow: auto;
-        width: 1280px;
+        width: media.$large;
     }
 
-    @include small {
+    @include media.smaller_than(media.$large) {
         overflow: auto;
         width: 100%;
     }

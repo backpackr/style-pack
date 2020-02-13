@@ -1,5 +1,7 @@
-@mixin flex_grid($is_12) {
-    @media (max-width: 480px) {
+@import "./utils/media";
+
+@mixin flex_grid($col_limit: 12) {
+    @include smaller_than(480px) {
         $size: 2;
         & > :nth-child(n) {
             width: calc(100% / #{$size});
@@ -16,23 +18,9 @@
         }
     }
 
-    @media (min-width: 480px) {
+    @include larger_than(480px) {
         $size: 4;
-        & > :nth-child(n) {
-            width: calc(100% / #{$size});
-        }
-
-        @for $col from 1 to 13 {
-            .flex_col_#{$col} {
-                @if $col >= $size {
-                    width: 100%;
-                } @else {
-                    width: calc(100% / #{$size} * #{$col}) !important;
-                }
-            }
-        }
-        @media (min-width: 780px) {
-            $size: 6;
+        @if ($size <= $col_limit) {
             & > :nth-child(n) {
                 width: calc(100% / #{$size});
             }
@@ -46,9 +34,27 @@
                     }
                 }
             }
-            @if $is_12 {
-                @media (min-width: 1080px) {
-                    $size: 12;
+        }
+        @include larger_than(780px) {
+            $size: 6;
+            @if ($size <= $col_limit) {
+                & > :nth-child(n) {
+                    width: calc(100% / #{$size});
+                }
+
+                @for $col from 1 to 13 {
+                    .flex_col_#{$col} {
+                        @if $col >= $size {
+                            width: 100%;
+                        } @else {
+                            width: calc(100% / #{$size} * #{$col}) !important;
+                        }
+                    }
+                }
+            }
+            @include larger_than(1080px) {
+                $size: 12;
+                @if ($size <= $col_limit) {
                     & > :nth-child(n) {
                         width: calc(100% / #{$size});
                     }
@@ -81,9 +87,11 @@
 
 .flex_grid {
     @extend %flex_grid_default;
-    @include flex_grid(true);
-    &_6 {
-        @extend %flex_grid_default;
-        @include flex_grid(false);
+    @include flex_grid();
+    @for $limit from 1 to 13 {
+        &_#{$limit} {
+            @extend %flex_grid_default;
+            @include flex_grid($limit);
+        }
     }
 }
