@@ -1,7 +1,7 @@
-@import "./utils/media";
+@use "utils/media";
 
 @mixin flex_grid($col_limit: 12) {
-    @include smaller_than(480px) {
+    @include media.smaller_than(media.$mobile) {
         $size: 2;
         & > :nth-child(n) {
             width: calc(100% / #{$size});
@@ -18,7 +18,7 @@
         }
     }
 
-    @include larger_than(480px) {
+    @include media.larger_than(media.$mobile) {
         $size: 4;
         @if ($size <= $col_limit) {
             & > :nth-child(n) {
@@ -35,40 +35,40 @@
                 }
             }
         }
-        @include larger_than(780px) {
-            $size: 6;
-            @if ($size <= $col_limit) {
-                & > :nth-child(n) {
-                    width: calc(100% / #{$size});
-                }
+    }
 
-                @for $col from 1 to 13 {
-                    .flex_col_#{$col} {
-                        @if $col >= $size {
-                            width: 100%;
-                        } @else {
-                            width: calc(100% / #{$size} * #{$col}) !important;
-                        }
+    @include media.larger_than(media.$small) {
+        $size: 6;
+        @if ($size <= $col_limit) {
+            & > :nth-child(n) {
+                width: calc(100% / #{$size});
+            }
+
+            @for $col from 1 to 13 {
+                .flex_col_#{$col} {
+                    @if $col >= $size {
+                        width: 100%;
+                    } @else {
+                        width: calc(100% / #{$size} * #{$col}) !important;
                     }
                 }
             }
-            @include larger_than(1080px) {
-                $size: 12;
-                @if ($size <= $col_limit) {
-                    & > :nth-child(n) {
-                        width: calc(100% / #{$size});
-                    }
+        }
+    }
 
-                    @for $col from 1 to 13 {
-                        .flex_col_#{$col} {
-                            @if $col >= $size {
-                                width: 100%;
-                            } @else {
-                                width: calc(
-                                    100% / #{$size} * #{$col}
-                                ) !important;
-                            }
-                        }
+    @include media.larger_than(media.$medium) {
+        $size: 12;
+        @if ($size <= $col_limit) {
+            & > :nth-child(n) {
+                width: calc(100% / #{$size});
+            }
+
+            @for $col from 1 to 13 {
+                .flex_col_#{$col} {
+                    @if $col >= $size {
+                        width: 100%;
+                    } @else {
+                        width: calc(100% / #{$size} * #{$col}) !important;
                     }
                 }
             }
