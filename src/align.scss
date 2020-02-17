@@ -6,6 +6,7 @@ $flex_align: flex-start, center, flex-end;
         @each $vertical_align in $flex_align {
             &_#{$horizontal_align}_#{$vertical_align} {
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: #{$horizontal_align};
                 align-content: #{$vertical_align};
             }

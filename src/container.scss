@@ -1,12 +1,12 @@
 @use 'utils/media';
 
 %responsive_width {
-    @include media.larger_than(media.$large) {
+    @include media.larger_than(media.$small) {
         overflow: auto;
-        width: media.$large;
+        width: media.$medium;
     }
 
-    @include media.smaller_than(media.$large) {
+    @include media.smaller_than(media.$small) {
         overflow: auto;
         width: 100%;
     }

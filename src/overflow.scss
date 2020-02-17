@@ -1,0 +1,25 @@
+.overflow {
+    &_auto {
+        overflow: auto;
+        white-space: nowrap;
+        & > :nth-child(n) {
+            display: inline-block;
+        }
+
+        &_hidescroll {
+            overflow: auto;
+            white-space: nowrap;
+            -ms-overflow-style: none;
+            & > :nth-child(n) {
+                display: inline-block;
+            }
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    &_hidden {
+        overflow: hidden;
+    }
+}

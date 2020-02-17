@@ -1,14 +1,26 @@
+@use 'utils/media';
+
 %grid_default {
     display: grid;
 }
 
+@mixin grid($limit: 12) {
+    @include media.larger_than(media.$small) {
+        grid-template-columns: repeat($limit, 1fr);
+    }
+
+    @include media.smaller_than(media.$small) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 .grid {
     @extend %grid_default;
-    grid-template-columns: repeat(12, 1fr);
+    @include grid();
     @for $col from 1 to 13 {
         &_#{$col} {
             @extend %grid_default;
-            grid-template-columns: repeat($col, 1fr);
+            @include grid($col);
         }
     }
 }
@@ -16,7 +28,12 @@
 @for $start from 0 to 13 {
     @for $end from $start + 1 to 13 {
         .col_#{$start}_#{$end} {
-            grid-column: #{$start + 1} / #{$end + 1};
+            @include media.larger_than(media.$small) {
+                grid-column: #{$start + 1} / #{$end + 1};
+            }
+            @include media.smaller_than(media.$small) {
+                grid-column: 1 / 2;
+            }
         }
     }
 }
