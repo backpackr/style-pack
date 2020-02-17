@@ -138,6 +138,7 @@ It will make your project to show you changes immediately
 -   align
 -   grid
 -   flex_grid
+-   radius
 
 ## 📜 License
 
