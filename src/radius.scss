@@ -1,0 +1,25 @@
+$selecter: 5, 10, 15, 20, 25, 30;
+
+.radius {
+    @each $radius in $selecter {
+        &_#{$radius} {
+            border-radius: #{$radius}px;
+        }
+
+        &_#{$radius}_top {
+            border-radius: #{$radius}px #{$radius}px 0 0;
+        }
+
+        &_#{$radius}_bottom {
+            border-radius: 0 0 #{$radius}px #{$radius}px;
+        }
+
+        &_#{$radius}_right {
+            border-radius: 0 #{$radius}px #{$radius}px 0;
+        }
+
+        &_#{$radius}_left {
+            border-radius: #{$radius}px 0 0 #{$radius}px;
+        }
+    }
+}
