@@ -8,7 +8,7 @@ $flex_align: flex-start, center, flex-end;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: #{$horizontal_align};
-                align-content: #{$vertical_align};
+                align-items: #{$vertical_align};
             }
         }
     }

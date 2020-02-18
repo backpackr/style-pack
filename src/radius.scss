@@ -1,4 +1,4 @@
-$selecter: 5, 10, 15, 20, 25, 30;
+$selecter: 2, 5, 10, 15, 20, 25, 30;
 
 .radius {
     @each $radius in $selecter {
